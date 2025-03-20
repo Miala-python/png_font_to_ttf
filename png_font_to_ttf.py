@@ -23,10 +23,16 @@ font.encoding = 'UnicodeFull' # required encoding to access private range
 
 pixels = image.load()
 
-for j in range(image.height // height):
-    for i in range(image.width // width):
+yi = image.height // height
+xi = image.width // width
+
+for j in range(yi):
+    for i in range(xi):
       offset = i + j * (image.width // width)
 
+      # txt progress bar
+      print(j,"/",yi,":",i,"/",xi)
+        
       # generate two copies of char, in 0-256 and in private range
       for codepoint in [offset, private_range + offset]:
           char = font.createChar(codepoint)
