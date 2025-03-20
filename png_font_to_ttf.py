@@ -51,4 +51,6 @@ for j in range(yi):
                       pen.closePath()
 
 # export to font 
+print("Exporting...")
 font.generate(output, flags=('opentype'))
+print("Finished.")
